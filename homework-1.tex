@@ -14,7 +14,7 @@
 \predate{\begin{flushleft}\large}
 \postdate{\end{flushleft}}
 
-\title{Abstract Algebra (MATH-4620) HOMEWORK 1 Solutions}
+\title{Abstract Algebra (MATH-4620) HOMEWORK 1}
 \author{Christian Dean}
 \date{September 1, 2023}
 
@@ -102,7 +102,7 @@
 
     \begin{solution}
         Yes. \emph{Proof:} Let $x, y \in \mathbb{Z}$. Then $\phi(x + y)=-x-y$ and $\phi(x)+\phi(y)=-x-y$.
-        and $\phi$ is a bijection as $\phi(0) = 0$, and every other integer is mapped to exactly one integer,
+        And $\phi$ is a bijection as $\phi(0) = 0$, and every other integer is mapped to exactly one integer,
         its additive inverse.
     \end{solution}
 
@@ -111,7 +111,7 @@
     \end{problem}
 
     \begin{solution}
-        No, as $\phi$ is not surjective, and thus not bijective. \emph{Proof:} Let $y = 1$.
+        No, as $\phi$ is not surjective, and thus not bijective. \emph{Proof:} Let $y = 1 \in \mathbb{Z}$.
         But $\nexists x \in \mathbb{Z} \ni \phi(x) = y = 1$.
     \end{solution}
 
@@ -140,7 +140,7 @@
     \end{problem}
 
     \begin{solution}
-        No, since $\phi$ is not injective or surjective.
+        No, since $\phi$ is is not injective or surjective. \emph{Proof:} $\phi(2) = 4 = \phi(-2)$. 
     \end{solution}
 
     \begin{problem}{7}
@@ -148,17 +148,28 @@
     \end{problem}
 
     \begin{solution}
-        No. Let $x, y \in \mathbb{R}$. Then $\phi(x + y) = (x+y)^3$, but $\phi(x)+\phi(y)=x^3+y^3$
+        No. Let $x, y \in \mathbb{R}$. Then $\phi(x + y) = (x+y)^3$, but $\phi(x)+\phi(y)=x^3+y^3$.
     \end{solution}
 \section{Groups and Subgroups (pg. 36)} 
     \begin{problem}{26}
+        Prove that if $\phi: S \rightarrow S'$ is an isomorphism of $(S, *)$ with $(S, *')$,
+        then $\phi^{-1}$ is an isomorphism of $(S', *')$ with $(S, *)$.
     \end{problem}
 
     \begin{solution}
+        \emph{Proof:} As $\phi^{-1}$ has an inverse, $\phi$, it is a bijection.
+        Let $x, y \in S'$. Then:
+        \begin{align*}
+            &\phi^{-1}(x *' y)\\
+            &=\phi^{-1}(\phi(\phi^{-1}(x)) *' \phi(\phi^{-1}(y)))\\
+            &=\phi^{-1}(\phi(\phi^{-1}(x) * \phi^{-1}(y)))\\
+            &=\phi^{-1}(x) * \phi^{-1}(y)
+        \end{align*}
+        Completing the proof.
     \end{solution}
 \section{Groups and Subgroups (pg. 42)}
     \begin{problem}{8}
-        Give the table for the group for the set ${1, 3, 5, 7}$ with multiplication
+        Give the table for the group for the set $\{1, 3, 5, 7\}$ with multiplication
         $\cdot_8$ modulo 8.
     \end{problem}
 
@@ -233,12 +244,12 @@
     \begin{solution}
         No, since $\phi$ is not a bijection. \emph{Proof:} Consider any two 
         polynomial functions that differ only by a constant. They're both
-        infintely differentiable and will both be mapped to the same derivative
-        by $\phi$.
+        infintely differentiable, so they'll both be in $\mathcal{C}^\infty(\mathbb{R})$. 
+        And both will be mapped to the same derivative by $\phi$.
     \end{solution}
 
     \begin{problem}{8}
-        Let $S = {a, b, c}$ and consider the partial table:
+        Let $S = \{a, b, c\}$ and consider the partial table:
         \begin{center}
         \begin{tabular}{ c | c c c } 
             $\star$ & a & b & c \\ 
@@ -280,11 +291,11 @@
     \end{problem}
 
     \begin{solution}
-        No, as there is no identiy element by observation of the table.
+        No, as there is no identity element by observation of the table.
     \end{solution}
 
     \begin{problem}{9}
-        Consider the set $S = {(x, y) \in \mathbb{R}^2 | x^2 + y^2 = 1}$. Define
+        Consider the set $S = \{(x, y) \in \mathbb{R}^2 | x^2 + y^2 = 1\}$. Define
         $\star$ by the following rule: $(x_1, y_1) \star (x_2, y_2) = 
         (x_1 x_2 - y_1 y_2, x_1 y_2 + x_2 y_1)$.
     \end{problem}
@@ -294,6 +305,33 @@
     \end{problem}
 
     \begin{solution}
+        \emph{Proof:}
+        \begin{enumerate}
+            \item $(1, 0)$ is the identity element of $(S, \star)$. Let $(x, y) \in S$.
+            Then $(1, 0) \star (x, y) = ((1)(x) - (0)(y), (1)(y) + (x)(0)) = (x, y)$.
+            And $(x, y) \star (1, 0) = ((x)(1) - (y)(0), (y)(1) + (0)(x)) = (x, y)$.
+
+            \item $\star$ is associative. Let $(a_1, a_2), (b_1, b_2), (c_1, c_2) \in S$. Then,
+            \begin{align*}
+                &(a_1, a_2) \star ((b_1, b_2) \star (c_1, c_2)) =\\ 
+                &(a_1, a_2) \star (b_1 c_1 - b_2 c_2, b_1 c_2 + c_1 b_2) =\\
+                &(a_1(b_1 c_1 - b_2 c_2) - a_2(b_1 c_2 + c_1 b_2), a_1(b_1 c_2 + c_1 b_2) + (b_1 c_1 - b_2 c_2)a_2) =\\
+                &(a_1(b_1 c_1 - b_2 c_2) - a_2(b_1 c_2 + c_1 b_2), a_1(b_1 c_2 + c_1 b_2) + a_2(b_1 c_1 - b_2 c_2))
+            \end{align*}
+            And,
+            \begin{align*}
+                &((a_1, a_2) \star (b_1, b_2)) \star (c_1, c_2) =\\ 
+                &(a_1 b_1 - a_2 b_2, a_1 b_2 + b_1 a_2) \star (c_1, c_2) =\\
+                &((a_1 b_1 - a_2 b_2)c_1 - (a_1 b_2 + b_1 a_2)c_2, (a_1 b_1 - a_2 b_2)c_2 + c_1(a_1 b_2 + b_1 a_2))=\\
+                &(a_1b_1c_1 - a_2b_2c_1 - a_1b_2c_2 - b_1a_2c_2, a_1b_1c_2 - a_2b_2c_2 + c_1a_1b_2 + c_1b_1a_2) =\\
+                &(a_1b_1c_1 - a_1b_2c_2 - a_2b_2c_1 - b_1a_2c_2, a_1b_1c_2 + c_1a_1b_2 - a_2b_2c_2  + c_1b_1a_2) =\\
+                &(a_1(b_1 c_1 - b_2 c_2) - a_2(b_1 c_2 + c_1 b_2), a_1(b_1 c_2 + c_1 b_2) + a_2(b_1 c_1 - b_2 c_2))
+            \end{align*}
+
+            \item Every element has an inverse. Let $(x, y) \in S$. Note $(x, -y) \in S$ as $x^2 + {(-y)}^2 = x^2 + y^2 = 1$.
+            And, $(x, y) \star (x, -y) = ((x)(x) - y(-y), x(-y) + x(y)) = (x^2 + y^2, -xy + xy) = (1, 0)$. Thus, $(x, -y)$ is
+            the inverse of $(x, y)$.
+        \end{enumerate}
     \end{solution}
 
     \begin{problem}{9b}
@@ -301,12 +339,37 @@
     \end{problem}
 
     \begin{solution}
+        Yes. \emph{Proof:} Let $(x_1, y_1), (x_2, y_2) \in S$. Then,
+        $(x_1, y_1) \star (x_2, y_2) = (x_1 x_2 - y_1 y_2, x_1 y_2 + x_2 y_1)$. And,
+        $(x_2, y_2) \star (x_1, y_1) = (x_2x_1 - y_2y_1, x_2y_1 + x_1y_2) = 
+        (x_1x_2 - y_1y_2, x_1y_2 + x_2y_1)$
     \end{solution}
 
     \begin{problem}{10}
+        Let $(G, \circ)$ and $(H, \bullet)$ be two groups. Show $(G \times H, \star)$
+        is a group, where $\star$ is defined by: $(g_1, h_1) \star (g_2, h_2) = 
+        (g_1 \circ g_2, h_1 \bullet h_2)$.
     \end{problem}
 
     \begin{solution}
+        \begin{enumerate}
+            \item $(e_G, e_H)$ is the identity element of $(G \times H, \star)$. Let $(g, h) \in
+            G \times H$. Then $(g, h) \star (e_G, e_H) = (g \circ e_G, h \bullet e_H) = 
+            (g, h)$ and $(e_G, e_H) \star (g, h) = (e_G \circ g, e_H \bullet h) = 
+            (g, h)$.
+
+            \item $\star$ is associative. Let $(g_1, h_1), (g_2, h_2), (g_3, h_3) \in G \times H$. Then,
+            $(g_1, h_1) \star ((g_2, h_2) \star (g_3, h_3)) = (g_1, h_1) \star (g_2 \circ g_3, h_2 \bullet h_3) =
+            (g_1 \circ (g_2 \circ g_3), h_1 \bullet (h_2 \bullet h_3)) = (g_1 \circ g_2 \circ g_3, h_1 \bullet h_2 \bullet h_3)$.
+
+            And $((g_1, h_1) \star (g_2, h_2)) \star (g_3, h_3) = (g_1 \circ g_2, h_1 \bullet h_2) \star (g_3, h_3) = 
+            ((g_1 \circ g_2) \circ g_3, (h_1 \bullet h_2) \bullet h_3) = (g_1 \circ g_2 \circ g_3, h_1 \bullet h_2 \bullet h_3)$.
+
+            \item Every element has an inverse. Let $(g, h) \in G \times H$. And as $G$ and $H$ are both groups,
+            $g^{-1} \in G$ and $h^{-1} \in H$. Thus, $(g^{-1}, h^{-1}) \in G \times H$. Then, $(g, h) \star (g^{-1}, h^{-1}) = 
+            (g \circ g^{-1}, h \bullet h^{-1}) = (e_G, e_H)$ and $(g^{-1}, h^{-1}) \star (g, h) = (g^{-1} \circ g, h^{-1} \bullet h) = 
+            (e_G, e_H)$. Thus, $(g^{-1}, h^{-1})$ is the inverse of $(g, h)$.
+        \end{enumerate}
     \end{solution}
     
 \end{document}
