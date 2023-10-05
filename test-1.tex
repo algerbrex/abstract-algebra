@@ -1,0 +1,238 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage{makecell}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\setlength{\droptitle}{-8ex}
+\pretitle{\begin{flushleft}\large}
+\posttitle{\par\end{flushleft}}
+\preauthor{\begin{flushleft}\large}
+\postauthor{\end{flushleft}}
+\predate{\begin{flushleft}\large}
+\postdate{\end{flushleft}}
+
+\title{Abstract Algebra (MATH-4620) TEST 1 TAKE-HOME COMPONENT}
+\author{Christian Dean}
+\date{September 1, 2023}
+
+
+\newenvironment{problem}
+    [1]
+    {\noindent \textbf{Problem #1:}}
+    {\vspace{3mm}}
+
+\begin{document}
+
+\maketitle
+
+\noindent\hfil\rule{16cm}{0.4pt}\hfil
+
+\begin{problem}{1}
+    \begin{enumerate}[(a)]
+        \item \emph{Proof}: Suppose $G$ and $H$ are groups and $G \cong H$ by the map
+        $\varphi: G \rightarrow H$. Let $a \in G$. It will be shown there exists a bijection 
+        between ${<}a{>}$ and ${<}\varphi(a){>} \Rightarrow$ the order of $a \in G$ equals 
+        the order of $\varphi(a) \in H$.
+
+        \bigskip\noindent
+        Define $\tau: {<}a{>} \rightarrow {<}\varphi(a){>}$ by $\tau(a^m) = \varphi(a^m) =
+        \varphi(a)^m$. And as $\varphi$ has an inverse, we can define 
+        $\pi: {<}\varphi(a){>} \rightarrow {<}a{>}$ by $\pi(\varphi(a)^m) = 
+        \varphi^{-1}(\varphi(a)^m) = \varphi^{-1}(\varphi(a^m)) = a^m$. It will now be shown
+        $\pi$ is the inverse of $\tau$. Let $a^{m} \in {<}a{>}$. Then $\pi(\tau(a^m)) =
+        \pi(\varphi(a)^m) = a^m$. And let $\varphi(a)^m \in {<}\varphi(a){>}$. Then 
+        $\tau(\pi(\varphi(a)^m)) = \tau(a^m) = \varphi(a)^m$. Thus as $\tau$ has an inverse
+        it is a bijection, and thus $|a| = |\varphi(a)|$.
+
+        \item Let $G$ be a group and let $x \in G$. Defined $\lambda_x: G \rightarrow G$ by
+        $\lambda_x(g) = x^{-1}gx$. As it has been shown previously that $\lambda_x$ is a 
+        permutation of G, then it will be sufficent to prove that $\lambda_x$ has the
+        homomorphism property. Let $a, b \in G$. Then $\lambda_x(ab) = x^{-1}abx = (x^{-1}ax)
+        (x^{-1}bx) = \lambda_x(a)\lambda_x(b)$.
+
+        \item Suppose $G$ is a group, and let $g, h \in G$. Define $\lambda_g: G \rightarrow G$
+        by $\lambda_g(a) = g^{-1}ag$. Note $\lambda_g(gh) = g^{-1}ghg = ehg = hg$. Thus, since 
+        $\lambda_g$ is an automorphism by part (b), the theorem proven in part (a) applies, and so
+        $|gh| = |\lambda_g(gh)| = |hg| \Rightarrow |gh| = |hg|$.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{2}
+    \begin{enumerate}[(a)]
+        \item 
+        \begin{tabular}{ c | c } 
+            divisor & permutations \\
+            \hline
+            1 & id \\
+            \hline
+            2 & \makecell{
+                    $(1,4)(2,5)(3,6)$, $(2,6)(3,5)$, $(1,6)(2,5)(3,4)$ \\
+                    $(1,5)(2,4)$, $(1,4)(2,3)(5,6)$, $(1,3)(4,6)$ \\
+                    $(1,2)(3,6)(4,5)$
+                } \\
+            \hline
+            3 & $(1,3,5)(2,4,6)$, $(1,5,3)(2,6,4)$ \\
+            \hline
+            4 & none \\
+            \hline
+            6 & $(1,2,3,4,5,6)$, $(1,6,5,4,3,2)$ \\
+            \hline
+            12 & none
+        \end{tabular}
+
+        \item $D_6 \cap A_6 = \{id, (1,3,5)(2,4,6), (1,5,3)(2,6,4), (2,6)(3,5), (1,5)(2,4), (1,3)(4,6)\}$
+        
+        \item \emph{Proof:} $\text{id} \in H$. $H$ is also closed under the group operation of function
+        composition:
+            \begin{align*}
+                &\text{id} \circ \text{id} = \text{id}\\
+                &\text{id} \circ (1,3,5)(2,4,6) = (1,3,5)(2,4,6)\\
+                &\text{id} \circ (1,5,3)(2,6,4) = (1,5,3)(2,6,4)\\
+                &(1,3,5)(2,4,6) \circ \text{id} = (1,3,5)(2,4,6)\\
+                &(1,3,5)(2,4,6) \circ (1,5,3)(2,6,4) = \text{id}\\
+                &(1,3,5)(2,4,6) \circ (1,3,5)(2,4,6) = (1,5,3)(2,6,4)\\
+                &(1,5,3)(2,6,4) \circ \text{id} = (1,5,3)(2,6,4)\\
+                &(1,5,3)(2,6,4) \circ (1,3,5)(2,4,6) = \text{id}\\
+                &(1,5,3)(2,6,4) \circ (1,5,3)(2,6,4) = (1,3,5)(2,4,6)
+            \end{align*}
+        And $H$ is also closed under inverses:
+            \begin{align*}
+                &\text{id} \circ \text{id} = \text{id}\\
+                &(1,3,5)(2,4,6) \circ (1,5,3)(2,6,4) = \text{id} = (1,5,3)(2,6,4) \circ (1,3,5)(2,4,6)
+            \end{align*}
+
+        \item \begin{align*}
+            \text{id}H &= \{\text{id}, (1,3,5)(2,4,6), (1,5,3)(2,6,4)\}\\
+            (2,6)(3,5)H &= \{(2,6)(3,5), (1,5)(2,4), (1,3)(4,6)\}\\
+            (1,4)(2,5)(3,6)H &= \{(1,4)(2,5)(3,6), (1,6,5,4,3,2), (1,2,3,4,5,6)\}\\ 
+            (1,6)(2,5)(3,4)H &= \{(1,6)(2,5)(3,4), (1,4)(2,3)(5,6), (1,2)(3,6)(4,5)\}
+        \end{align*}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{3}
+    \begin{enumerate}[(a)]
+        \item \emph{Proof}: ($\Leftarrow$) This subproof will proceed by cases.
+        
+        \bigskip\noindent
+        (\textbf{Case 1}) Suppose
+        $G$ is a nontrivial group that is isomorphic to the $\mathbb{Z}$. By a previous theorem,
+        every non-trivial subgroup of $\mathbb{Z}$ has the form $n\mathbb{Z}, n \in \mathbb{Z}^*$.
+        And as every group of the form $n\mathbb{Z}, n \in \mathbb{Z}^*$ is cyclic, every non-trivial
+        subgroup of $\mathbb{Z}$ is an infinite, cyclic group. Therefore, as isomorphisms preserve 
+        cyclicity and order, every subgroup of $G$ is an infinite, cyclic group. And by 
+        \textbf{Theorem 9}, every subgroup of $G$ is isomorphic to $\mathbb{Z}$. So, as
+        every subgroup of $G$ is isomorphic to $\mathbb{Z}$ and $G$ is isomorphic to $\mathbb{Z}$,
+        by the transitivity of the isomorphic relation, every subgroup of $G$ is isomorphic to $G$.
+
+        \bigskip\noindent
+        (\textbf{Case 2})
+        Suppose $G$ is a non-trivial group that is isomorphic to $\mathbb{Z}_p$, where $p$ is prime.
+        Thus as $|G|$ is $p$ and $p$ is prime, by Lagrange's Theorem, every non-trivial subgroup of 
+        $G$ has order $p$. And this implies that every non-trivial subgroup of $G$ is $G$ itself.
+        Thus, as every group is isomorphic to itself, $G$ is isomorphic to all its subgroups. 
+
+        \bigskip\noindent
+        ($\Rightarrow$) This subproof will also proceed by cases.
+
+        \bigskip\noindent
+        (\textbf{Case 1}) Suppose $G$ is a nontrivial group that has infinite order and is isomorphic
+        to all of its non-trivial subgroups. As every subgroup of $G$ is isomorphic to $G$, then
+        every cyclic subgroup of G is isomorphic to $G$. And as isomorphisms preserve cyclicity,
+        $G$ must be cyclic. Thus, as $G$ is a cyclic group of infinite order, by \textbf{Theorem 9}, 
+        it is isomorphic to $Z$.
+
+        \bigskip\noindent
+        (\textbf{Case 2}) Suppose $G$ is a nontrivial group that has finite order and is isomorphic
+        to all of its non-trivial subgroups. As every subgroup of $G$ is isomorphic to $G$, then
+        every cyclic subgroup of G is isomorphic to $G$. And as isomorphisms preserve cyclicity,
+        $G$ must be cyclic. Thus, as $G$ is a cyclic group of finite order, by \textbf{Theorem 9}, 
+        it is isomorphic to $Z_n$, for some $n \in \mathbb{N}$. Note $n > 1$ as $G$ is a non-trivial
+        subgroup, and can only be isomorphic to another non-trivial subgroup. Also note $n$ cannot be
+        composite. Isomorphisms preserve element order, and if $n$ were composite, there would
+        be subgroups of $Z_n$ that are not isomorphic to $Z_n$, namely divisors of $n$ greater than $1$.
+        Thus, $n$ must be prime.
+
+
+        \item This is false. Consider the following counterexample: Let $L = \{\text{id}, (1,3), (3, 1)\} 
+        \le S_6$ and let $H$ be as defined in problem 2c. Note $|L| = |H|$, and $L, H \le S_6$ but 
+        $L$ cannot be isomorphic to $H$ as $L$ has an element of order 2, but $H$ has no element of order 2.
+        
+        \item \emph{Proof}: It will be shown that $S_\mathbb{N}$ satisifies the specified
+        property.
+
+        \bigskip\noindent
+        Let $n \in N$. Define $f_n:\mathbb{N} \rightarrow S_\mathbb{N}$ by 
+        $f_n(m) = (m, 2m, 3m, \ldots, (n)m)$. Note that for any $m \in \mathbb{N}$, $|f_n(m)| = n$, 
+        as the size of the cycle $f_n(m)$ is n, and the $lcm(n) = n$. Thus, it will be shown that 
+        $|f_n(\mathbb{N})| = |\mathbb{N}|$, which when combined together with the previous fact 
+        implies that there are (countably) infinitely many elements of $S_\mathbb{N}$ that have 
+        order $n$. To prove $|\mathbb{N}| = |f_n(\mathbb{N})|$, it will be shown that $f_n$ is a 
+        bijection between $\mathbb{N}$ and $f_n(\mathbb{N})$.
+    
+        \bigskip\noindent
+        (\textbf{Injectivity}) Let $p, q \in N$ and suppose $f_n(p) = f_n(q)$. This implies, 
+        $(p, 2p, \ldots, (n)p) = (q, 2q, \ldots, (n)q)$. And as two cycles are equal if and
+        only if every element of cycles are equal, then $p = q$.
+
+        \bigskip\noindent
+        (\textbf{Surjectivity}) Let $\sigma \in f_n(\mathbb{N})$. Thus $\sigma$ has the form
+        $(p, 2p, 3p, \ldots, (n)p)$ for some $p \in \mathbb{N}$. Let $x = p$. Then $f_n(x) =
+        f_n(p) = (p, 2p, 3p, \ldots, (n)p) = \sigma$.
+
+        \bigskip\noindent
+        Thus the proof is complete.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{4}
+    \begin{enumerate}[(a)]
+        \item \emph{Proof:} Suppose $G$ and $H$ are groups and $\varphi: G \rightarrow H$ is a homomorphism.
+        Let $y \in H$. Let $x \in \varphi^{-1}(y)$. Then $y\varphi(e_G) = \varphi(x)\varphi(e_G) =
+        \varphi(xe_G) = \varphi(x) = y$. And a similar proof holds to show $\varphi(e_G)y = y$. Thus,
+        $\varphi(e_G) = e_H$.
+
+        \item \emph{Proof:} Suppose $G$ and $H$ are groups and $\varphi: G \rightarrow H$ is a homomorphism. 
+        Let $K = \text{ker}(\varphi)$. $e_G \in K$ as it was proven in 4a that $\varphi(e_G) = e_H$. $H$ is closed 
+        under the group operation: Let $x, y \in K$. Then $\varphi(xy) = \varphi(x)\varphi(y) = e_He_H = 
+        e_H \Rightarrow xy \in K$. And $K$ is closed under inverses: Let $x \in K$. Then:
+
+        \begin{align*}
+            &xx^{-1} = e_G\\
+            &\Rightarrow \varphi(xx^{-1}) = \varphi(e_G)\\
+            &\Rightarrow \varphi(x)\varphi(x^{-1}) = e_H\\
+            &\Rightarrow e_H\varphi(x^{-1}) = e_H\\
+            &\Rightarrow \varphi(x^{-1}) = e_H
+        \end{align*}
+
+        And this implies $x^{-1} \in K$.
+
+        \item \emph{Proof:}
+        Suppose $G$ and $H$ are groups and $\varphi: G \rightarrow H$ is a homomorphism. 
+        Let $I = \text{img}(\varphi)$. $e_H \in I$ as $e_G \in G$ and $\varphi(e_G) = e_H$, as proven in 4a.
+        $I$ is closed under the group operation: Let $x, y \in I$. Let $a \in \varphi^{-1}(x)$ and
+        $b \in \varphi^{-1}(y)$. Then $xy = \varphi(a)\varphi(b) = \varphi(ab)$ by the homomorphism
+        property. Thus, $xy \in I$ as its pre-image is in $G$. And $I$ is closed under inverses:
+        Let $x \in I$. Let $b \in \varphi^{-1}(x)$. As $G$ is closed under inverses, then $b^{-1} \in G$.
+        Note $\varphi(b^{-1}) \in I$, and $x\varphi(b^{-1}) = \varphi(b)\varphi(b^{-1}) = \varphi(bb^{-1}) =
+        \varphi(e_G) = e_H$. And a similar proof shows $\varphi(b^{-1})x = e_H$. Thus $x$ has an inverse, 
+        $x^{-1} = \varphi(b^{-1})$, in $I$.
+
+        \item \emph{Proof:} ($\Rightarrow$) 
+        Suppose $G$ and $H$ are groups and $\varphi: G \rightarrow H$ is a homomorphism. 
+        Suppose $\varphi$ is one-to-one. As proven in 4a, $\varphi(e_G) = e_H$. Thus,
+        as $e_H$ has a pre-image, and $\varphi$ is one-to-one, no other element will map
+        to $e_H$. Thus $\text{ker}(\varphi) = K = \{e_G\}$.
+
+        \bigskip\noindent
+        ($\Leftarrow$) Wasn't sure how to prove this direction.
+    \end{enumerate}
+\end{problem}
+
+\end{document}
