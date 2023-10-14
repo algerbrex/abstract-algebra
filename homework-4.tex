@@ -1,0 +1,123 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\setlength{\droptitle}{-8ex}
+\pretitle{\begin{flushleft}\large}
+\posttitle{\par\end{flushleft}}
+\preauthor{\begin{flushleft}\large}
+\postauthor{\end{flushleft}}
+\predate{\begin{flushleft}\large}
+\postdate{\end{flushleft}}
+
+\title{Abstract Algebra (MATH-4620) HOMEWORK 4}
+\author{Christian Dean}
+\date{October 16, 2023}
+
+
+\newenvironment{problem}
+    [1]
+    {\noindent \textbf{Problem #1:}}
+    {\vspace{3mm}}
+
+\begin{document}
+
+\maketitle
+
+\noindent\hfil\rule{16cm}{0.4pt}\hfil
+
+\begin{problem}{1}
+    \emph{Proof:} Let $H$ be the set of elements from $G$ that have finite order.
+
+    \bigskip\noindent
+    $H$ contains the identity: Note that $1$ is the smallest natural number such that 
+    $e^1 = e$. Thus the order of $e$ is $1$, and thus finite. So $e \in H$.
+
+    \bigskip\noindent
+    $H$ is also closed under the group operation: Let $h, g \in H$. Then let $|{<}h{>}| = n,
+    |{<}g{>}| = m$ for some $n, m \in \mathbb{N}$. Let $k = nm$. Then: $(hg)^k = (h^k)(g^k) = 
+    (h^{nm})(g^{nm}) = ((h^n)^m)((g^m)^n) = (e^m)(e^n) = (e)(e) = e$. Thus as $(hg)^k = e$, then
+    $|{<}hg{>}| \le k$. Since, if there exists a smaller natural number $l < k$, such
+    that $(hg)^l = e$, then by \textbf{Theorem 8}, $|{<}hg{>}| = l < k$. And if no smaller 
+    natural number $l < k$ is such that $(hg)^l = e$, then again by \textbf{Theorem 8}, 
+    $|{<}hg{>}| = k$. Thus the order of $hg$ is finite.
+
+    \bigskip\noindent
+    $H$ is also closed under inverses: Let $h \in H$. Then $h^n = e$ for some $n \in \mathbb{N}$.
+    Then:
+        \begin{align*}
+            &h^n = e\\
+            \Rightarrow \; &h^{-n}h^n = h^{-n}e\\
+            \Rightarrow \; &e = h^{-n}\\
+        \end{align*}
+    And by similar reasoning to the above proof that $H$ is closed under the group operation,
+    $|{<}h^{-1}{>}| \leq n$ and thus $h^{-1}$, has finite order. (My guess is that in fact 
+    $|{<}h^{-1}{>}| = n$, but I wasn't sure if that was implied by the above proof and didn't
+    want to make too strong of a claim).
+\end{problem}
+
+\begin{problem}{2}
+    \begin{enumerate}
+        \setcounter{enumi}{1}
+
+        \item $\phi$ is not a homomorphism. Counterexample: $\phi(2.9 + 5.7) = \lfloor8.6\rfloor =
+        8$ but $\phi(2.9) + \phi(5.7) = \lfloor2.9\rfloor + \lfloor5.7\rfloor = 2 + 5 = 7$.
+
+        \item $\phi$ is a homomorphism: Let $a, b \in \mathbb{R}^*$. Then $\phi(ab) = |ab| = 
+        |a||b| = \phi(a)\phi(b)$.
+
+        \item $\phi$ is a homomorphism: Let $a, b \in \mathbb{Z}_6$. \textbf{Case 1}:
+        $a$ and $b$ have the same parity. Then $a + b \; (\text{mod } 6)$ is even, and thus 
+        $\phi(a + b \; (\text{mod } 6)) = 0$. If $a$ and $b$ are both odd, then $\phi(a) 
+        + \phi(b) = 1 + 1 \; (\text{mod } 2) = 0$. And if $a$ and $b$ are both even then 
+        $\phi(a) + \phi(b) = 0 + 0 \; (\text{mod } 2) = 0$. \textbf{Case 2:} Without loss
+        of generality suppose $a$ is odd and $b$ is even. Then $a + b \; (\text{mod } 6)$
+        is odd, and $\phi(a + b \; (\text{mod } 6)) = 1$. And $\phi(a) + \phi(b) = 1 + 0
+        \; (\text{mod } 2) = 1$. Thus in both cases, $\phi(a + b \; (\text{mod } 6)) = \phi(a) 
+        + \phi(b)$.
+
+        \item $\phi$ is not a homomorphism as $|{<}\phi(1){>}| = 2$ and thus
+        does not divide $|{<}1{>}| = 9$.
+
+        \setcounter{enumi}{8}
+
+        \item $\phi$ is a homomorphism as the differention operation is linear.
+        
+        \setcounter{enumi}{11}
+
+        \item $\phi$ is not a homomorphism: Let $A = \begin{bmatrix*}[r] 1 & 2 \\ 3 & 4 
+        \end{bmatrix*}$ and $A = \begin{bmatrix*}[r] 5 & 6 \\ 7 & 8 \end{bmatrix*}$. Then
+        $\phi(A + b) = \phi(\begin{bmatrix*}[r] 6 & 9 \\ 9 & 12 \end{bmatrix*}) = -9$.
+        But $\phi(A) + \phi(B) = -2 + (-2) = -4$.
+
+        \item $\phi$ is a homomorphism: Let $A, B \in M_2$. Then $\phi(A + B) = 
+        (a_{11} + b_{11}) + (a_{22} + b_{22}) = (a_{11} + a_{22}) + (b_{11} + b_{22}) = 
+        \phi(A) + \phi(B)$.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{3}
+    \begin{enumerate}
+        \setcounter{enumi}{2}
+
+        \item $\text{Ker}(\phi) = \{1, -1\}$
+
+        \item $\text{Ker}(\phi) = \{0, 2, 4\}$
+
+        \setcounter{enumi}{8}
+
+        \item $\text{Ker}(\phi) = \{f \in F \;|\; f^{''}(x) = 0 \}$
+        
+        \setcounter{enumi}{12}
+
+        \item $\text{Ker}(\phi) = \{A \in M_2 \;|\; a_{11} = -a_{22}\}$
+    \end{enumerate}
+\end{problem}
+
+\end{document}
