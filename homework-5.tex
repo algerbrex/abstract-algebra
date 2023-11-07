@@ -1,0 +1,129 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\setlength{\droptitle}{-8ex}
+\pretitle{\begin{flushleft}\large}
+\posttitle{\par\end{flushleft}}
+\preauthor{\begin{flushleft}\large}
+\postauthor{\end{flushleft}}
+\predate{\begin{flushleft}\large}
+\postdate{\end{flushleft}}
+
+\title{Abstract Algebra (MATH-4620) HOMEWORK 5}
+\author{Christian Dean}
+\date{October 27, 2023}
+
+
+\newenvironment{problem}
+    [1]
+    {\noindent \textbf{Problem #1:}}
+    {\vspace{3mm}}
+
+\begin{document}
+
+\maketitle
+
+\noindent\hfil\rule{16cm}{0.4pt}\hfil
+
+\begin{problem}{1}
+    \begin{enumerate}[(a)]
+        \item $|\mathbb{Z}_9 \times \mathbb{Z}_{35}| = 9 * 35 = 315$ and $|{<}3{>} \times 
+        {<}25{>}| = (9/3) * (35/5) = 3 * 7 = 21$. Thus, the order of the factor group is
+        $315/21 = 15$.
+
+        \item $|\mathbb{Z}_9 \times \mathbb{Z}_{35}| = 315$ and $|\{0\} \times 
+        {<}11{>}| = 1 * (35/1) = 35$. Thus, the order of the factor group is $315/35 = 
+        9$.
+
+        \item $|\mathbb{Z}_{18} \times \mathbb{Z}_{24}| = 18 * 24 = 432$. And $|{<}(3,2){>}|$
+        is the smallest $n$ such that $n * (3,2) = (3n, 2n) = (0, 0)$ which implies
+        it is the smallest $n$ such that $18|3n$ and $24|2n$. And as $18 = 3^2 * 2$ and
+        $24 = 2^3 * 3$, then $n = 2^2 * 3 = 12$. Thus the order of the factor group is
+        $432 / 12 = 36$.
+
+        \item $|\mathbb{Z}_{18} \times \mathbb{Z}_{24}| = 432$. And $|{<}(1,1){>}|$
+        is the smallest $n$ such that $n * (1,1) = (n, n) = (0, 0)$ which implies
+        it is the smallest $n$ such that $18|n$ and $24|n$. Thus $n = lcm(18, 24) = 72$. 
+        Thus the order of the factor group is $432 / 72 = 6$.
+
+        \item $|\mathbb{Z}_{19} \times \mathbb{Z}_{24}| = 19 * 24 = 456$. And 
+        $|{<}(1,1){>}|$ is the smallest $n$ such that $n * (1,1) = (n, n) = (0, 0)$ 
+        which implies it is the smallest $n$ such that $19|n$ and $24|n$. Thus 
+        $n = lcm(19, 24) = 19 * 2^3 * 3 = 19 * 24 = 456$. Thus the order of the factor 
+        group is $456 / 456  = 1$.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{2}
+    \begin{enumerate}[(a)]
+        \item $|{<}\overline{10}{>}|$ is the smallest $n$ such that $(\overline{10})^n = \overline{0}$,
+        which implies it is the smallest $n$ such that $10^n = 10n \in {<}8{>}$. Thus 
+        $n = 4$ as $10(4) = 16 \;(\text{mod } 24)$. Thus $|{<}\overline{10}{>}| = 4$.
+
+        \item $|{<}\overline{(1,7)}{>}|$ is the smallest $n$ such that $(1,7)^n \in {<}(1,1){>}$.
+        And as $|(\mathbb{Z}_6 \times \mathbb{Z}_9) / ({<}(1,1){>})| \\= 54/18 = 3$,
+        then $|{<}\overline{(1,7)}{>}|$ must divide $3$, so it is $1$ or $3$. And thus
+        $n = 1$ as $(1,7) = (7 \;(\text{mod } 6), 7 \;(\text{mod } 9)) \in {<}(1,1){>}$.
+
+        \item $|{<}\overline{(2,3)}{>}|$ is the smallest $n$ such that $(2,3)^n \in {<}(1,2){>} = 
+        \{(0,0), (1, 2), (2, 4), (3, 6)\}$. And as $|(\mathbb{Z}_4 \times \mathbb{Z}_8) / 
+        ({<}(1,2){>})| = 32/4 = 8$, then $|{<}\overline{(2,3)}{>}|$ must divide $8$, 
+        so it must be $1$, $2$, $4$, or $8$. And thus, checking each value, $n = 8$ as
+        $8 * (2,3) = (16 \;(\text{mod } 4), 24 \;\\(\text{mod } 8)) = (0,0) \in {<}(1,2){>}$.
+
+        \item $|{<}\overline{(3,2)}{>}|$ is the smallest $n$ such that $(3,2)^n \in {<}(1,2){>} = 
+        \{(0,0), (1, 2), (2, 4), (3, 6)\}$. And as $|(\mathbb{Z}_4 \times \mathbb{Z}_8) / 
+        ({<}(1,2){>})| = 32/4 = 8$, then $|{<}\overline{(3,2)}{>}|$ must divide $8$, 
+        so it must be $1$, $2$, $4$, or $8$. And thus, checking each value, $n = 2$ as
+        $2 * (3,2) = (6 \;(\text{mod } 4), 4 \;(\text{mod } 8))\\ = (2, 4) \in {<}(1,2){>}$.
+        
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{3}
+    \begin{enumerate}[(a)]
+        \item $(\mathbb{Z} \times \mathbb{Z}) / (\langle2\rangle \times \langle4\rangle) \cong 
+        (\mathbb{Z} / \langle2\rangle) \times (\mathbb{Z} / \langle4\rangle) = (\mathbb{Z} / 
+        2\mathbb{Z}) \times (\mathbb{Z} / 4\mathbb{Z}) \cong \mathbb{Z}_2 \times \mathbb{Z}_4$.
+
+        \item 
+        
+        \item 
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{4}
+    \begin{enumerate}[(a)]
+        \item \emph{Proof}: Suppose $G$ is a group, $H$ is a normal subgroup, and $G/H$ is infinite.
+        As $G/H$ is a partition of G, then $|G|$ is the sum of cardinality of each coset. Let $|G| = 
+        S = \sum_{i=1}^{\infty} |C_i|$, where $C_i$ is the i-th coset in $G/H$. As $|C_i| \in 
+        \mathbb{N}$ for each $i$, then the infinite sum $S$ diverges to infinity. Thus $G$ is infinite.
+        
+        \item False. \emph{Counterexample}: $\mathbb{Z} / 2\mathbb{Z} \cong \mathbb{Z}_2$, and so
+        $|\mathbb{Z} / 2\mathbb{Z}| = 2$. But $\mathbb{Z}$ is infinite.
+        
+        \item False. \emph{Counterexample}: $S_6/A_6 \cong \mathbb{Z}_2$, and so $S_6/A_6$ is abelian.
+        But $S_6$ is not abelian.
+        
+        \item \emph{Proof}: This is the contrapositive of \textbf{Theorem 47}, part (ii).
+
+        \bigskip\noindent
+        Alternatively: \emph{Proof:} Suppose $G/H$ is non-abelian. Then there exists two cosets, $xH$ and $yH$ 
+        such that $xyH \neq yxH$. \textbf{Case 1:} Suppose $xy \notin yxH$. Then $xy \neq yx$ for every $h \in H$,
+        which implies $xy \neq yx(e_G) \Rightarrow xy \neq yx$. \textbf{Case 2:} Suppose $xy \in yxH$. Then
+        $xy = yxh$ for some $h \in H$. But $h$ cannot be $e_G$, since if it were, $xy = yx \Rightarrow
+        xyH = yxH$, a contradiction. Thus $h \neq e_G$, and thus $xy \neq yx$. And as there exists two elements in
+        $G$, $x$ and $y$ such that they do not commute, the proof is complete.
+        
+        \item
+    \end{enumerate}
+\end{problem}
+
+\end{document}
