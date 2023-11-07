@@ -1,0 +1,210 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{titling}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\setlength{\droptitle}{-8ex}
+\pretitle{\begin{flushleft}\large}
+\posttitle{\par\end{flushleft}}
+\preauthor{\begin{flushleft}\large}
+\postauthor{\end{flushleft}}
+\predate{\begin{flushleft}\large}
+\postdate{\end{flushleft}}
+
+\title{Abstract Algebra (MATH-4620) HOMEWORK 6}
+\author{Christian Dean}
+\date{November 8, 2023}
+
+
+\newenvironment{problem}
+    [1]
+    {\noindent \textbf{Problem #1:}}
+    {\vspace{3mm}}
+
+\begin{document}
+
+\maketitle
+
+\noindent\hfil\rule{16cm}{0.4pt}\hfil
+
+\begin{problem}{1}
+    \begin{enumerate}
+        \setcounter{enumi}{6}
+
+        \item $(n\mathbb{Z}, +, \cdot)$ is a ring. It is also commutative as regular multiplication
+        of integers is commutative. It has unity only when $n = 1$. But it is not a field, as 
+        $n\mathbb{Z}$ is not closed under multiplicative inverses.
+
+        \item $(\mathbb{Z}^+, +, \cdot)$ is not a ring, as it $(\mathbb{Z}^+, +)$ is not an abelian
+        group. Namely, $(\mathbb{Z}^+, +)$ contains no additive idenity.
+
+        \item $(\mathbb{Z} \times \mathbb{Z}, +, \cdot)$ is a ring. It is also commutative as 
+        regular multiplication of integers is commutative. It also has unity, as $(1, 1)$ is the
+        multiplicative identity. But it is not a field, as $\mathbb{Z}$ is not closed under 
+        multiplicative inverses.
+
+        \item $(2\mathbb{Z} \times \mathbb{Z}, +, \cdot)$ is a ring. It is also commutative as 
+        regular multiplication of integers is commutative. But it does not have unity, as $(1, 1)$ 
+        is not in $2\mathbb{Z} \times \mathbb{Z}$. And thus, it also cannot be a field.
+
+        \item Let $S = \{a+b\sqrt{2}\ | a, b \in \mathbb{Z}\}$. $R = (S, +, \cdot)$ is a ring as 
+        $(S, +) \cong (\mathbb{Z}^2, +)$, and is thus an abelian group, regular multiplication between 
+        real numbers is associative, and the distributive property holds among real numbers. It is also 
+        commutative as regular multiplication among real numbers is commutative. It also has unity, as
+        $1 \in S$. 
+
+
+        \bigskip\noindent
+        But it is not a field. Fix $a + b\sqrt{2} \in S$, and suppose it has an inverse, $c + d\sqrt{2}
+        \in S$. Then $(a + b\sqrt{2})(c + d\sqrt{2}) = 1 \Rightarrow ac + ad\sqrt{2} + bc\sqrt{2} + 2bd 
+        = 1 \Rightarrow \sqrt{2}(ad + bc) = 1 - ac - 2bd$. A solution to this equation would be when
+        $ad + bc = 0$ and $1 - ac - 2bd = 0$. Thus, keeping $a$ and $b$ fixed, we can solve for $c$
+        and $d$ in terms of $a$ and $b$. (The algebra to find these formulas was straightforward but
+        tedious, so I opted not to include it for clarity):
+
+        $$
+            c = \frac{a}{a^2-2b^2} \;\;\; d = \frac{-b}{a^2-2b^2}
+        $$
+
+        Thus there is a formula to compute the multiplicative inverse of an arbitrary element in $R$:
+        For any choice of $a + b\sqrt{2} \in R$, the multiplicative inverse $(a + b\sqrt{2})^{-1} = 
+        (\frac{a}{a^2-2b^2} - \frac{b}{a^2-2b^2}\sqrt{2})$. But, the formula will not always produce 
+        an integer, and thus not every element of $R$ will have an inverse.
+        
+
+        \item Let $S = \{a+b\sqrt{2}\ | a, b \in \mathbb{Q}\}$. $R = (S, +, \cdot)$ is a ring as 
+        $(S, +) \cong (\mathbb{Q}^2, +)$, and is thus an abelian group, regular multiplication 
+        between real numbers is associative, and the distributive property holds among real numbers.
+        It is also commutative as regular multiplication among real numbers is commutative. It also 
+        has unity, as $1 \in S$.
+
+        \bigskip\noindent
+        Further, given the formula found in the previous question, every non-zero element of $R$ will 
+        have a multiplicative inverse. Since the rationals are closed under multiplication and addition, the
+        only way the above formula would fail would be if the denominators were ever zero. But this
+        cannot occur. \emph{Proof}: If the denominators were zero, then $a^2-2b^2 = 0 \Rightarrow
+        a^2 = 2b^2 \Rightarrow a = \pm\sqrt{2b^2} = \pm b\sqrt{2}$. Thus, as $a, b \neq 0$, and
+        $b \in \mathbb{Q}$, $a$ would need to be irrational. But as $a \in \mathbb{Q}$, this cannot
+        occur. Thus the denominators of the formula will never be zero.
+        
+        \item $(i\mathbb{R}, +, \cdot)$ is a ring, as $(i\mathbb{R}, +)$ forms an abelian group,
+        multiplication among imaginary numbers is associative, and the distributive property
+        holds among imaginary numbers. It is also commutative as multiplication among imaginary
+        numbers commutes. But it does not have unity, as $1 \notin i\mathbb{R}$, and no other
+        element of $i\mathbb{R}$ can act as the identity. \emph{Proof}: We will proceed by 
+        contradiction. Suppose $i\mathbb{R}$ is a field, and let $ei$ be the identity element,
+        where $e \in \mathbb{R}$. Then $(ei)(ei) = ei \Rightarrow -e^2 = e \Rightarrow e^2 = -e$.
+        Note $ei \neq 0$, since from observation $0$ cannot be the multiplicative identity. Thus
+        $e^2 = -e$ is a contradiction, as any non-zero real number squared is positive. Thus the 
+        proof is complete. 
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{2}
+    \begin{enumerate}
+        \setcounter{enumi}{43}
+
+        \item (\textbf{a}) \emph{Proof:} Let $I$ denote the set of idemponet elements in a commutative
+        ring. Let $a, b \in I$. Then $ab = (a^2)(b^2) = aabb = abab = (ab)^2 \Rightarrow ab \in I$.
+
+        \bigskip\noindent
+        (\textbf{b}) There are 16 idemponets in the ring $\mathbb{Z}_6 \times \mathbb{Z}_{12}$: 
+        $\{(0, 0), (0, 1), (0, 4), (0, 9), \\ (3, 0), (3, 1), (3, 4),(3, 9), (1, 0), (1, 1), 
+        (1, 4), (1, 9), (4, 0), (4, 1), (4, 4), (4, 9)\}$
+
+        \setcounter{enumi}{45}
+
+        \item Let $N$ denote the set of nilpotent elements in a commutative ring. Let $a, b \in N$.
+        Consider $(a + b)^{nm}$. By the binomial theorem, every term in the expansion of $(a + b)$ will
+        have the form $\binom{nm}{k} \cdot a^{nm-k} \times b^k$, where $0 \le k \le nm$. We will proceed
+        by cases.
+
+        \bigskip\noindent
+        \textbf{Case 1:} $k \ge m \Rightarrow b^k = 0 \Rightarrow \binom{nm}{k} \cdot a^{nm-k} \times b^k = 0$.
+        \textbf{Case 2:} $k \le m$. It is enough to suppose that $k = m - 1$ and prove that $nm-k = nm - (m-1) \ge n$,
+        since if it is true that $nm - (m-1) \ge n$, then $nm - k \ge n$ for any other value of $k \le m$.
+
+        \bigskip\noindent
+        Note that $nm - n(m - 1)  = n(m - (m - 1)) = n(m - m + 1) = n(1) = n \Rightarrow nm - n(m - 1) \ge n$. Thus,
+        as $n(m - 1) \ge (m - 1)$, then $nm - (m-1) \ge n \Rightarrow a^{nm-k} = 0 \Rightarrow \binom{nm}{k} \cdot a^{nm-k} 
+        \times b^k = 0$.
+
+        \bigskip\noindent
+        Thus, as every term of the expansion of $(a + b)^{nm}$ is zero, then $(a+b)^{nm} = 0 \Rightarrow (a+b) \in N$, and the
+        proof is complete.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{3}
+    \begin{enumerate}[(a)]
+        \item $\mathbb{Z} \times \mathbb{Z}$ has characteristic $0$, but is not an integral domain
+        as $(1, 0)$ and $(0, 1)$ are zero divisors.
+
+        \item $\mathbb{R}$ with regular multiplication and addition is a field with a characteristic
+        of $0$, as the additive order of the multiplicative identity $1$ is infinite. And it is not
+        isomorphic to $\mathbb{Q}$ as $\mathbb{R}$ is uncountably infinite but $\mathbb{Q}$ is 
+        countable.
+        
+        \item Conider the ring $M_2(\mathbb{Z}_5)$ with coordinate-wise addition and matrix 
+        multiplication. It has characteristic $5$, since adding an element of the ring to itself
+        $5$ times would be equivelent to multiplying each entry of the matrix by $5$, which would 
+        mean each entry would be $0$, mod $5$. Further, it has a finite number of elements: 
+        $5^4 = 625$. But it is not a field, as some matrices have zero determinants, and thus have 
+        no multiplicative inverses.
+        
+        \item $\mathbb{Z}_5[x]$
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}{4}
+    \emph{Proof:} We will proceed by proving the contrapositive: If the characteristic of a ring $R$
+    is composite, it is not a field.
+
+    \bigskip\noindent
+    Let $(R, +, \times)$ be a ring such that $char(R) = n$ is composite. Then, there exists two 
+    positive integers $a$ and $b$ such that $a,b \neq 1$, $a, b \neq n$, and $n = ab$. Let 
+    $x = \sum_{1}^{a}1_R$ and $y = \sum_{1}^{b}1_R$. Note $x,y \neq 0_R$ as the characteristic is 
+    $n$, and $a, b \le n$.
+
+    \bigskip\noindent
+    Consider $ab = \sum_{1}^{a}1_R \times \sum_{1}^{b}1_R$. The result of this product will be 
+    summing $1_R \times 1_R$ $ab$-times $\Rightarrow \sum_{1}^{a}1_R \times \sum_{1}^{b}1_R = ab 
+    \cdot 1_R = n \cdot 1_R = 0_R \Rightarrow ab = 0_R$.
+
+    \bigskip\noindent
+    Thus, as $a$ and $b$ are two elements of the ring that are non-zero, yet have a product of
+    zero, then $a$ and $b$ are zero-divisors. And as a zero-divisior cannot be a unit, then 
+    $R$ has elements that are not units, which demonstrates $R$ is not a field. Thus the proof
+    is complete.
+\end{problem}
+
+\begin{problem}{5}
+    \begin{enumerate}[(a)]
+        \item \emph{Proof for $R$}: $(R, +) \cong (\mathbb{Z}^2, +)$, thus $(R, +)$ is an abelian 
+        group. Multiplication is associative as regular multiplication of real numbers is associative,
+        and the distributive property holds for real numbers. Addtionally, $R$ is commutative: Let
+        $a + b\sqrt{3}, c + d\sqrt{3} \in R$. Then $(a + b\sqrt{3})(c + d\sqrt{3}) = ac + ad\sqrt{3}
+        + bc\sqrt{3} + 3bd = ca + cb\sqrt{3} + da\sqrt{3} + 3db = (c + d\sqrt{3})(a + b\sqrt{3})$.
+
+        \bigskip\noindent 
+        \emph{Proof for $R'$}: $R'$ is a subring of $M_2(\mathbb{Z})$, as $(R', +)$ is a subgroup of
+        $(M_2(\mathbb{Z}), +)$, $R'$ contains the multiplicative identity, when $a = 1, b = 0$, and 
+        it is closed under matrix multiplication: Let $A = \begin{pmatrix*}[r] a & 3b \\ b & a 
+        \end{pmatrix*}, B = \begin{pmatrix*}[r] c & 3d \\ d & c \end{pmatrix*} \in R'$. Then $AB = 
+        C = \begin{pmatrix*}[r] ac + 3bd & 3(ad + bc) \\ ad + bc & ac + 3bd\end{pmatrix*}$, and note
+        $c_{1,1} = c_{2,2}$, $c_{1,2} = 3c_{2,1}$, and $ad + bc, ac + 3bd \in \mathbb{Z}$. Further $R'$ 
+        is commutative, as $BA = \begin{pmatrix*}[r] ca + 3db & 3(cb + da) \\ da + cb & ca + 3db
+        \end{pmatrix*} = \begin{pmatrix*}[r] ac + 3bd & 3(ad + bc) \\ ad + bc & ac + 3bd\end{pmatrix*}
+        \\= AB$, as regular addition and multiplication of the integers is commutative.
+
+        \item 
+
+    \end{enumerate}
+\end{problem}
+
+\end{document}
