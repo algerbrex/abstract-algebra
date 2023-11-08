@@ -202,8 +202,40 @@
         \end{pmatrix*} = \begin{pmatrix*}[r] ac + 3bd & 3(ad + bc) \\ ad + bc & ac + 3bd\end{pmatrix*}
         \\= AB$, as regular addition and multiplication of the integers is commutative.
 
-        \item 
+        \item \emph{Proof}: $\varphi$ is a bijection as it has an inverse $\varphi^{-1}: R' \rightarrow
+        R$ defined by $\begin{pmatrix*}[r] a & 3b \\ b & a \end{pmatrix*} \longmapsto a + b\sqrt{3}$.
 
+        \bigskip\noindent
+        $\varphi$ satisfies the homomorphism property for the additive operation: Let $a + 
+        b\sqrt{3}, c + d\sqrt{3} \in R$. Then:
+        
+        \begin{align*}
+            &\varphi((a + b\sqrt{3}) + (c + d\sqrt{3}))\\
+            = &\varphi((a + c) + (b + d)\sqrt{3})\\
+            = &\begin{pmatrix*}[r] a + c & 3(b + d) \\ b + d & a + c \end{pmatrix*}\\
+            = &\begin{pmatrix*}[r] a + c & 3b + 3d \\ b + d & a + c \end{pmatrix*}\\
+            = &\begin{pmatrix*}[r] a & 3b \\ b & a \end{pmatrix*} + 
+               \begin{pmatrix*}[r] c & 3d \\ d & c \end{pmatrix*}\\ 
+            = &\varphi(a + b\sqrt{3}) + \varphi(c + d\sqrt{3})
+        \end{align*}
+
+        $\varphi$ satisfies the homomorphism property for the multiplicative operation: Let $a + 
+        b\sqrt{3}, c + d\sqrt{3} \in R$. Then:
+
+        \begin{align*}
+            &\varphi((a + b\sqrt{3})(c + d\sqrt{3}))\\
+            = &\varphi(ac + ad\sqrt{3} + bc\sqrt{3} + 3bd)\\
+            = &\varphi((ac + 3bd) + (ad + bc)\sqrt{3})\\
+            = &\begin{pmatrix*}[r] ac + 3bd & 3(ad + bc) \\ ad + bc & ac + 3bd 
+               \end{pmatrix*}\\
+            = &\begin{pmatrix*}[r] ac + 3bd & 3ad + 3bc \\ bc + ad & 3bd + ac
+               \end{pmatrix*}\\
+            = &\begin{pmatrix*}[r] a & 3b \\ b & a \end{pmatrix*} 
+               \begin{pmatrix*}[r] c & 3d \\ d & c \end{pmatrix*}\\ 
+            = &\varphi(a + b\sqrt{3})\varphi(c + d\sqrt{3})
+        \end{align*}
+
+        Thus $\varphi$ is an isomorphism.
     \end{enumerate}
 \end{problem}
 
